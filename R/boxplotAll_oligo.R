@@ -17,7 +17,7 @@ function(ds, est_noctrls=NULL,Pset=NULL, picname, labels=NULL, conditions=NULL,
     parameters <- setparam(labels)
     
     if (!is.null(resDir)){
-        resultsDir=resDir
+        resDir=resultsDir
     }
     
     if (is.null(Pset)) {
@@ -27,27 +27,27 @@ function(ds, est_noctrls=NULL,Pset=NULL, picname, labels=NULL, conditions=NULL,
     
     #Boxplot rawdata
     if (raw.bp){
-        png(file.path(resultsDir, paste(picname,"Boxplots.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+        png(file.path(resDir, paste(picname,"Boxplots.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
         BoxplotRaw_oligo(ds, parameters=parameters, lab =labels, conditions=conditions, colors=colors)
         dev.off()
     }
     
     #Boxplot RMA
     if (RMA.bp){
-        png(file.path(resultsDir,paste(picname, "BoxplotsRMA.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+        png(file.path(resDir,paste(picname, "BoxplotsRMA.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
         BoxplotNorm_oligo(est_noctrls=est_noctrls, parameters=parameters, conditions=conditions, colors=colors)
         dev.off()
     }
     #RLE plot
     if (RLE) {
-        png(file.path(resultsDir,paste(picname, "RLE.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+        png(file.path(resDir,paste(picname, "RLE.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
         RLE_NUSE_oligo(Pset, "RLE", parameters=parameters, lab=labels, conditions=conditions, colors=colors)
         dev.off()
     }
     
     #NUSE plot
     if(NUSE) {
-        png(file.path(resultsDir,paste(picname, "NUSE.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+        png(file.path(resDir,paste(picname, "NUSE.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
         RLE_NUSE_oligo(Pset, "NUSE", parameters=parameters, lab=labels, conditions=conditions, colors=colors)
         dev.off()
     }
