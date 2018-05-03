@@ -16,7 +16,7 @@ function(ds, est_noctrls=NULL,Pset=NULL, picname, labels=NULL, conditions=NULL,
     labels <- colnames(exprs(ds))
     parameters <- setparam(labels)
     
-    if (!is.null(resDir)){
+    if (is.null(resDir)){
         resDir=resultsDir
     }
     
