@@ -7,7 +7,7 @@ function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2, resDir=NULL
     #colors: Vector with the colors assigned to each condition (in order of the unique(conditions))
     #dist: Distància de les labels respecte els punts
     #resDir: Directori de resultats, per defecte resultsDir
-    if (!is.null(resDir)){
+    if (is.null(resDir)){
         resDir=resultsDir
     }
     require(scatterplot3d)
