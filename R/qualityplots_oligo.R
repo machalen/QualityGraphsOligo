@@ -22,25 +22,25 @@ function(ds, picname, estimates_m=NULL, est_noctrls, labels=NULL, Pset=NULL,
     #noctrls: If TRUE clusters with no controls are generated
     #resDir: Per defecte Null, es el directori on es guarden els resultats
     if (!is.null(resDir)){
-        resultsDir=resDir
+        resDir=resultsDir
     }
     #Density plots per separat (subsets of 16 samples) i tots en una mateixa imatge
     if(Density){
-        densityplotAll_oligo(ds, picname=picname, groupn= groupn, all=all, resDir=resultsDir)
+        densityplotAll_oligo(ds, picname=picname, groupn= groupn, all=all, resDir=resDir)
     }
     #Boxplots
     if(Boxplots){
         boxplotAll_oligo(ds, est_noctrls=est_noctrls, Pset=Pset, labels=labels, picname=picname, 
-                         conditions=conditions, colors=colors, resDir=resultsDir)
+                         conditions=conditions, colors=colors, resDir=resDir)
     }
     #Clusters with and without controls
     if(Clusters){
         clusterdend(estimates_m=estimates_m, est_noctrls=est_noctrls, picname=picname, conditions=conditions, 
-                    colors=colors, estimates=estimates, noctrls=noctrls, resDir=resultsDir)
+                    colors=colors, estimates=estimates, noctrls=noctrls, resDir=resDir)
     }
     
     # PCA 
     if(PCA){
-        makePCA(est_noctrls, picname=picname, conditions=conditions, colors=colors, resDir=resultsDir)
+        makePCA(est_noctrls, picname=picname, conditions=conditions, colors=colors, resDir=resDir)
     }
 }
