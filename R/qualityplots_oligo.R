@@ -21,7 +21,7 @@ function(ds, picname, estimates_m=NULL, est_noctrls, labels=NULL, Pset=NULL,
     #estimates: If TRUE clusters with all the estimates are generated
     #noctrls: If TRUE clusters with no controls are generated
     #resDir: Per defecte Null, es el directori on es guarden els resultats
-    if (!is.null(resDir)){
+    if (is.null(resDir)){
         resDir=resultsDir
     }
     #Density plots per separat (subsets of 16 samples) i tots en una mateixa imatge
