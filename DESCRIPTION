@@ -1,0 +1,9 @@
+Package: QualityGraphsOligo
+Type: Package
+Title: Make quality graphs for microarray data based on objects obtained with oligo normalization.
+Version: 1.0
+Date: 2018-05-02
+Author: Magdalena Arnal Segura <marnal@imim.es>
+Maintainer: Magdalena Arnal Segura <marnal@imim.es>
+Description: Package to make density plots, boxplots for raw and normalized data, clusters with different methods (average, Ward.D2 and complete) and with different distances (euclidean and correlations), and PCA 3Dplot.
+License: MIT + file LICENSE.
