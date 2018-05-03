@@ -9,7 +9,7 @@ function(ds, labels, picname, groupn=NULL, all=FALSE, resDir=NULL) {
     #all: If TRUE a summary with all the density plots in the same picture is generated
     
     if (!is.null(resDir)){
-        resultsDir=resDir
+        resDir=resultsDir
     }
     
     labels <- rownames(protocolData(ds))
@@ -19,7 +19,7 @@ function(ds, labels, picname, groupn=NULL, all=FALSE, resDir=NULL) {
     parameters <- setparam(labels[1:groupn])
     
     for (i in seq(1,length(labels), groupn)) {
-        png(file.path(resultsDir,paste(picname, i, i+groupn-1, ".png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+        png(file.path(resDir,paste(picname, i, i+groupn-1, ".png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
         densityplot_oligo(ds, strt=i, nd=(i+groupn-1), labels[i:(i+groupn-1)], parameters)
         dev.off()
     }
@@ -37,7 +37,7 @@ function(ds, labels, picname, groupn=NULL, all=FALSE, resDir=NULL) {
         #Els par?metres height, res i width s'haurien d'acabar doptimitzar
         
         
-        png(file=file.path(resultsDir, paste(picname, "all",".png", sep="_")), width=(parameters$wid*le),height=(parameters$hei*ro), res=parameters$res)
+        png(file=file.path(resDir, paste(picname, "all",".png", sep="_")), width=(parameters$wid*le),height=(parameters$hei*ro), res=parameters$res)
         par(mfrow=c(ro,le))
         for (i in seq(1,length(labels), groupn)) {
             densityplot_oligo(ds, strt=i, nd=(i+groupn-1), labels[i:(i+groupn-1)], parameters)
