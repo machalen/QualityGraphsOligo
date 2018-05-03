@@ -22,8 +22,8 @@ function(est_noctrls,strt=NULL,nd=NULL, parameters, conditions=NULL, colors=NULL
         axis(1,at=1:length(lab),labels=lab,cex.axis=parameters$ce,las=2)
     }else if(is.null(colors)){
         #reordenem el vector de condicions amb l'ordre del mixedsort
-        CondNames <- mixedsort(lab)
-        #CondNames <- lab
+        #CondNames <- mixedsort(lab)
+        CondNames <- lab
         CondTable <- data.frame(CondNames,conditions)
         conditions.o <- CondTable[match(lab, CondTable$CondNames),"conditions"]
         list1 <- unique(as.character(sort(conditions.o))) #Es necessari el as.character per a que els colors surtin be!!
@@ -36,8 +36,8 @@ function(est_noctrls,strt=NULL,nd=NULL, parameters, conditions=NULL, colors=NULL
         legend("topright",legend=list1, cex=0.5,fill=list2)
     } else {
         #reordenem el vector de condicions amb l'ordre del mixedsort
-        CondNames <- mixedsort(lab)
-        #CondNames <- lab
+        #CondNames <- mixedsort(lab)
+        CondNames <- lab
         CondTable <- data.frame(CondNames,conditions)
         conditions.o <- CondTable[match(lab, CondTable$CondNames),"conditions"]
         list1 <- unique(as.character(sort(conditions.o))) #Es necessari el as.character per a que els colors surtin be!!
