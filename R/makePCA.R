@@ -8,13 +8,13 @@ function(est_noctrls, picname, conditions=NULL, colors=NULL, dist=2, resDir=NULL
     #dist: Distància de les labels respecte els punts
     #resDir: Directori de resultats, per defecte resultsDir
     if (!is.null(resDir)){
-        resultsDir=resDir
+        resDir=resultsDir
     }
     require(scatterplot3d)
     labels <- colnames(est_noctrls)
     parameters <- setparam(labels)
     summary(pca.filt <- prcomp(t(est_noctrls))) #38% 
-    png(file.path(resultsDir,paste(picname,"PCA.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
+    png(file.path(resDir,paste(picname,"PCA.png", sep="_")),width=parameters$wid,height=parameters$hei,res=parameters$res)
     
     if (is.null(conditions)) {
         pca3d<-scatterplot3d(x=pca.filt$x[,1],y=pca.filt$x[,2],z=pca.filt$x[,3],  xlab='PC1', ylab='PC2', zlab='PC3', main='PCA',col.grid="lightblue", cex.symbols=parameters$ce+0.2)
