@@ -6,7 +6,7 @@ function(estimates_m=NULL, est_noctrls=NULL, picname, conditions=NULL, colors=NU
     #estimates_m: matriu amb les intensitats normalitzades
     #est_noctrls: Matriu amb les intensitats normalitzades sense controls
     #colors: Vector with the colors assigned to each condition (in order of the unique(conditions))
-    if (!is.null(resDir)){
+    if (is.null(resDir)){
         resDir=resultsDir
     }
     
