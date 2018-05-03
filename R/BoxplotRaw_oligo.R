@@ -22,8 +22,8 @@ function(ds,strt=NULL,nd=NULL, parameters, lab, conditions=NULL, colors=NULL){
         boxplot(RwData,main="Boxplot rawdata ",xaxt="n")
         axis(1,at=1:length(lab),labels=lab,cex.axis=parameters$ce,las=2)
     }else if(is.null(colors)){
-        CondNames <- mixedsort(lab)
-        #CondNames <- lab
+        #CondNames <- mixedsort(lab)
+        CondNames <- lab
         CondTable <- data.frame(CondNames,conditions)
         conditions.o <- CondTable[match(lab, CondTable$CondNames),"conditions"]
         list1 <- unique(as.character(sort(conditions.o))) #Es necessari el as.character per a que els colors surtin be!!
@@ -35,8 +35,8 @@ function(ds,strt=NULL,nd=NULL, parameters, lab, conditions=NULL, colors=NULL){
         axis(1,at=1:length(lab),labels=lab,cex.axis=parameters$ce,las=2)
         legend("topright",legend=list1, cex=0.5,fill=list2)
     }else{
-        CondNames <- mixedsort(lab)
-        #CondNames <- lab
+        #CondNames <- mixedsort(lab)
+        CondNames <- lab
         CondTable <- data.frame(CondNames,conditions)
         conditions.o <- CondTable[match(lab, CondTable$CondNames),"conditions"]
         list1 <- unique(as.character(sort(conditions.o)))#Es necessari el as.character per a que els colors surtin be!!
