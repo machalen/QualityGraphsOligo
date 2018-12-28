@@ -1,5 +1,5 @@
 BoxplotNorm_oligo <-
-function(est_noctrls,strt=NULL,nd=NULL, parameters, conditions=NULL, colors=NULL){
+function(est_noctrls,strt=NULL,nd=NULL, conditions=NULL, colors=NULL){
     #ds: GeneFeatureSet obtinguda per: RawData <- read.celfiles(celFiles.s, sampleNames= celnames.s)
     #strt: first sample to be analyzed
     #nd: last sample to be analyzed
@@ -15,7 +15,7 @@ function(est_noctrls,strt=NULL,nd=NULL, parameters, conditions=NULL, colors=NULL
     } else if (is.null(nd)) {
         nd <- length(ncol(est_noctrls))
     }
-    
+    parameters <- setparam(colnames(est_noctrls))
     
     if (is.null(conditions)) {
         boxplot(est_noctrls,main="Boxplot RMA all probe sets",xaxt="n")
