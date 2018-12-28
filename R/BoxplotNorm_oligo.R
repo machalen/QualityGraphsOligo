@@ -15,7 +15,7 @@ function(est_noctrls,strt=NULL,nd=NULL, conditions=NULL, colors=NULL){
     } else if (is.null(nd)) {
         nd <- length(ncol(est_noctrls))
     }
-    parameters <- setparam(colnames(est_noctrls))
+    parameters <- setparam(lab)
     
     if (is.null(conditions)) {
         boxplot(est_noctrls,main="Boxplot RMA all probe sets",xaxt="n")
